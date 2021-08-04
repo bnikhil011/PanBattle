@@ -9,7 +9,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 @Entity
 public class User {
 	@Id
@@ -20,8 +19,7 @@ public class User {
 	private String password;
 	private String emailid;
 	private long coins;
-	@ManyToMany
-	private List<Game> games = new ArrayList<Game>();
+	private String games;
 	private long score;
 	public long getId() {
 		return id;
@@ -53,23 +51,27 @@ public class User {
 	public void setCoins(long coins) {
 		this.coins = coins;
 	}
-	public List<Game> getGames() {
-		return games;
-	}
-	public void setGames(List<Game> games) {
-		this.games = games;
-	}
+	
 	public long getScore() {
 		return score;
 	}
 	public void setScore(long score) {
 		this.score = score;
 	}
+	public String getGames() {
+		return games;
+	}
+	public void setGames(String games) {
+		this.games = games;
+	}
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", name=" + name + ", password=" + password + ", emailid=" + emailid + ", coins="
 				+ coins + ", games=" + games + ", score=" + score + "]";
 	}
+	
+	
+	
 	
 	
 

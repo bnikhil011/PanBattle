@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Game {
@@ -18,7 +19,7 @@ public class Game {
 	private long winPrice;
 	private long enterPrice;
 	private long totalplayersAllowed;
-	@ManyToMany(mappedBy = "games")
+	@OneToMany
 	private List<User> registeredPlayers = new ArrayList<User>();
 	private Date date;
 	private int durition;

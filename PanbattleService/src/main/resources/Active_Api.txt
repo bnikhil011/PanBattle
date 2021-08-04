@@ -1,0 +1,15 @@
+User_Api (/user)
+
+1)/add (post)
+2)/update (put)
+3) /enrollgame/{id} (put)
+4)
+
+Admin_Api (/admin)
+1)/add (post)
+2)/addgame (Post)
+
+Common_Api(/service)
+1) /allusers (post)
+2) /allgames (post)
+3)

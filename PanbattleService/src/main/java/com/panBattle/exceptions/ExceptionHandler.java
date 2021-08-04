@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 
+
 @ControllerAdvice
 public class ExceptionHandler {
 
@@ -15,4 +16,9 @@ public class ExceptionHandler {
 		return new ResponseEntity<String>(excp.getMessage(), HttpStatus.BAD_REQUEST);
 	}
 	
+	@org.springframework.web.bind.annotation.ExceptionHandler(UserException.class)
+	public ResponseEntity<String>handleUserException(UserException userException)
+	{
+		return new ResponseEntity<String>(userException.getMessage(), HttpStatus.CONFLICT);
+	}
 }
