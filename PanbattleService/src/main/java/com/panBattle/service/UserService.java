@@ -20,7 +20,14 @@ public class UserService  {
 	@Autowired
 	GameDao gameDao;
 	
-	
+	public User findUser(User user)
+	{
+		Optional<User> usr = userDao.findUser(user.getName(), user.getPassword());
+		if(usr.isEmpty())
+			throw new UserException("User is not avilable");
+		else
+			return usr.get();
+	}
 	public User save(User user) {
 		
 		if(hasRequiredValues(user) && isValidNewUser(user))

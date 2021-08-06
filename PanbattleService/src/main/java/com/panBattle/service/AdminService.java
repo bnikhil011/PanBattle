@@ -31,6 +31,13 @@ public class AdminService {
 		adminDao.delete(admin);
 		return true;
 	}
+	public boolean deleteGamne(int id)
+	{
+		Game game = new Game();
+		game.setId(id);
+		gameDao.delete(game);
+		return true;
+	}
 	
 	public Game addGame(Game game)
 	{

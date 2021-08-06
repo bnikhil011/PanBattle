@@ -1,0 +1,44 @@
+
+.btn-white {
+    background-color: #fff;
+    border-color: #e7eaf3;
+}
+.radius-15 {
+    border-radius: 15px;
+}
+.contacts-social a {
+    font-size: 16px;
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    background: #ffffff;
+    border: 1px solid #eeecec;
+    text-align: center;
+    border-radius: 50%;
+    color: #2b2a2a;
+}
+header h1 
+{
+    background-color: #2b2a2a;
+    color: white;
+    border-radius: 20px;
+    text-align: center;
+}
+header div
+{
+    background-color: red;
+    float: right;
+}
+
+.bg-info {
+    background-color: #1c1e1f!important;
+}
+.bg-primary {
+    background-color: #008cff!important;
+}
+.bg-danger {
+    background-color: #fd3550!important;
+}
+.bg-warning {
+    background-color: #ffc107!important;
+}

@@ -1,0 +1,32 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.0.7/css/boxicons.min.css">
+
+<header>
+  <h1>Active Games</h1>
+</header>
+<div class="container">
+    <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-4">
+        
+        <div *ngFor="let game of games" class="col" >
+            <div class="card radius-15 bg-info">
+                <div class="card-body text-center">
+                    <div class="p-4 radius-15">
+                        <img src="https://bootdey.com/img/Content/avatar/avatar7.png" width="110" height="110" class="rounded-circle shadow p-1 bg-white" alt="">
+                        <h5 class="mb-0 mt-5 text-white">Game ID {{game.id}}</h5><br>
+                        <p class="mb-3 text-white">Win Price {{game.winPrice}}</p>
+                        <p class="mb-3 text-white">Entry Fee {{game.enterPrice}}</p>
+                        <p class="mb-3 text-white">Duration {{game.durition}} hours</p>
+                        <p class="mb-3 text-white">Players Alloded {{game.totalplayersAllowed}}</p>
+                        <div class="list-inline contacts-social mt-3 mb-3">
+                            
+                        </div>
+                        <div class="d-grid"> <button class="btn" (click)="enrollInGame(game)">Enroll in Game</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+

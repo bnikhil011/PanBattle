@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.panBattle.dao.UserDao;
 import com.panBattle.modal.User;
 import com.panBattle.service.UserService;
 
@@ -19,6 +20,11 @@ public class UserController {
 	@Autowired
 	UserService userService;
 	
+	@PostMapping("/auth")
+	public ResponseEntity<User>UserAuth(@RequestBody User user)
+	{
+		return new ResponseEntity(userService.findUser(user), HttpStatus.ACCEPTED);
+	}
 	@PostMapping("/add")
 	public ResponseEntity<User>addUser(@RequestBody User user)
 	{

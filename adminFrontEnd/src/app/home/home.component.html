@@ -1,0 +1,121 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.0.7/css/boxicons.min.css">
+
+<header>
+  <h1>Active Games</h1>
+  <div > 
+    <button  type="button" class="btn btn-primary" data-toggle="modal" data-target="#addGameModal">Add Game</button>
+  </div>
+</header>
+<div class="container">
+    <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-4">
+        
+        <div *ngFor="let game of games" class="col" >
+            <div class="card radius-15 bg-info">
+                <div class="card-body text-center">
+                    <div class="p-4 radius-15">
+                        <img src="https://bootdey.com/img/Content/avatar/avatar7.png" width="110" height="110" class="rounded-circle shadow p-1 bg-white" alt="">
+                        <h5 class="mb-0 mt-5 text-white">Game ID {{game.id}}</h5><br>
+                        <p class="mb-3 text-white">Win Price {{game.winPrice}}</p>
+                        <p class="mb-3 text-white">Entry Fee {{game.enterPrice}}</p>
+                        <p class="mb-3 text-white">Duration {{game.durition}} hours</p>
+                        <p class="mb-3 text-white">Players Alloded {{game.totalplayersAllowed}}</p>
+                        <div class="list-inline contacts-social mt-3 mb-3">
+                           <button class="btn btn-danger " data-toggle="modal" data-target="#deleteModal" (click)="assignModalGame(game)">X</button>
+                            
+                        </div>
+                        <div class="d-grid"> <a href="#" class="btn btn-white radius-15">Update Game</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+
+<!-- Delete Modal-->
+
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Delete game {{modalGame.id}}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure you want to delete this game</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" (click) = "deleteGame()">Delete Game</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<!-- Add Modal -->
+  
+<div class="modal fade" id="addGameModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Add Game </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form #addForm = "ngForm" (ngSubmit)="addGame(addForm)">
+            <div class="form-group">
+              <label for="Winprice">Enter Win Price</label>
+              <input type="text" ngModel  name ="winPrice" class="form-control" id="Winprice" aria-describedby="emailHelp" placeholder="Win Price">
+            </div>
+            <div class="form-group">
+                <label for="entryfee">Enter Entry Fee</label>
+                <input type="text" ngModel name ="enterPrice" class="form-control" id="entryfee" aria-describedby="emailHelp" placeholder="Entry Fee">
+            </div>
+            <div class="form-group">
+                <label for="allowedplayers">Total Allowed Players</label>
+                <input type="text" ngModel name ="totalplayersAllowed" class="form-control" id="allowedplayers" aria-describedby="emailHelp" placeholder="Allowed Players">
+            </div>
+            <div class="form-group">
+              <label for="duration">Game Durition</label>
+              <input type="text"  ngModel name ="durition" class="form-control" id="duration" aria-describedby="emailHelp" placeholder="duration">
+          </div>
+           
+            <div class="modal-footer">
+              <button type="button" id ="addmodelcloase"class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Save changes</button>
+            </div>
+          </form>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  
+<!-- Edit Modal -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
